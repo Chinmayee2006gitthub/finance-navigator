@@ -1,0 +1,40 @@
+[0:00 — HOOK]
+Managing personal finances can be complicated, stressful, and sometimes unsafe. That is why I built the Finance Navigator—a secure, multi-agent financial assistant designed to help everyday users categorize expenses, track category budgets, and optimize their savings without risking data leakage or prompt injection attacks.
+
+[0:20 — WHAT IT IS]
+Finance Navigator is built on the Concierge Agents track. It operates as a read-only advisor that integrates seamlessly with your financial ledger using the Model Context Protocol, using three collaborative AI agents to analyze and manage your financial plans.
+
+[0:40 — SHOW THE BANNER]
+(show assets/cover_page_banner.png)
+As you can see on the banner, the Finance Navigator is designed to be automated, secure, and intelligent. It offers automated ledger integration, interactive budgeting alerts, and customizable savings suggestions.
+
+[1:00 — ARCHITECTURE]
+(show assets/architecture_diagram.png)
+Let's walk through the architecture flow.
+First, every user query starts at the Security Checkpoint node. This checkpoint scrubs credit card PII, flags injection threats, and logs actions into an audit trail.
+If secure, the query moves to the Orchestrator Agent. The orchestrator coordinates our specialized specialists: the Categorizer Agent, which maps transactions to budgets, and the Savings Agent, which analyses goals.
+Both sub-agents query a local MCP Server for secure data fetching.
+Next, the Orchestrator passes the aggregated report to the Decision Node. If the report highlights large expenditures or budget violations, it routes to the Human Approval Node where a Human-in-the-Loop pause occurs.
+Finally, the results are formatted and displayed to the user in the Finalize Output Node.
+
+[2:00 — LIVE DEMO]
+(switch to playground at localhost:18081)
+Now let's see a live demonstration of how it runs.
+We will input the query: "Show me my recent transactions and give me some savings suggestions."
+(pause)
+Watch the terminal and UI as the request is processed.
+The Security Checkpoint validates the query and redacts any sensitive numbers.
+Then, the Orchestrator contacts the sub-agents.
+Since the rent payment of twelve hundred dollars exceeds our five hundred dollar threshold, and the overall total exceeds our fifteen hundred dollar limit, the system pauses.
+Right here in the UI, we see the Human-in-the-Loop request: "Large expense or high spending detected in your report. Do you approve this financial plan?"
+I will type "yes" in the chat and send it.
+(pause)
+As soon as I approve, the workflow finishes and returns the complete, formatted report showing our budget alerts, categorized expenses, and customized savings tips.
+
+[3:00 — SECURITY & MCP]
+The security checkpoint guarantees safety by blocking direct transfer or withdraw commands at the door.
+Meanwhile, our decoupled local MCP server allows us to fetch transactions, budgets, and savings goals securely without exposing raw database credentials to the model.
+
+[3:30 — IMPACT / CLOSE]
+By combining multi-agent collaboration with strict security boundaries and Human-in-the-Loop controls, Finance Navigator makes personal finance management safe, modular, and easy for everyone.
+Thank you!
