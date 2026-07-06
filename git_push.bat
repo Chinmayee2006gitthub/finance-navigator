@@ -5,6 +5,7 @@ echo [1/7] Copying generated assets to project directory...
 if not exist assets mkdir assets
 copy /y "C:\Users\LENOVO\.gemini\antigravity-ide\brain\ecb62713-a892-4483-9869-503686901f6b\architecture_diagram_1783096957398.png" "assets\architecture_diagram.png"
 copy /y "C:\Users\LENOVO\.gemini\antigravity-ide\brain\ecb62713-a892-4483-9869-503686901f6b\cover_page_banner_1783097079176.png" "assets\cover_page_banner.png"
+copy /y "C:\Users\LENOVO\.gemini\antigravity-ide\brain\ecb62713-a892-4483-9869-503686901f6b\project_thumbnail_1783331540170.png" "assets\project_thumbnail.png"
 
 echo [2/7] Initializing local Git repository...
 git init
